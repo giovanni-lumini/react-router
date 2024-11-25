@@ -5,9 +5,18 @@
 }
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: lightgrey;
   padding: 2rem;
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
 }
 
 .btn-trash {
@@ -36,4 +45,12 @@ header {
 .text-center {
   text-align: center;
   font-weight: bolder;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
