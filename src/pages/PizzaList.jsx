@@ -20,7 +20,7 @@ export default function PizzaList() {
         fetchData()
     }
     /* con useEffect, la chiamata API avviene già all'apertura della pagina, senza cliccare sul button */
-    /* useEffect(fetchData, []) */
+    useEffect(fetchData, [])
 
     return (
         <>

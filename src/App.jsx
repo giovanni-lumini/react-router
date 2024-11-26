@@ -17,7 +17,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/pizza-list" element={<PizzaList />} />
-            <Route path="/pizze/:id" element={<SinglePizza />} />
+            <Route path="/pizza-list/:id" element={<SinglePizza />} />
           </Route>
         </Routes>
       </BrowserRouter>

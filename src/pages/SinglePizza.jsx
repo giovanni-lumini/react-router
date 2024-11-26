@@ -4,11 +4,8 @@ import { useNavigate, useParams } from "react-router-dom"
 export default function SinglePizza() {
 
     const { id } = useParams();
-    const navigate = useNavigate()
-    const [pizza, setPizza] = useState(null)
     const url = "http://127.0.0.1:3000/pizze/${id}"
     console.log(url);
-
 
     useEffect(
         () => {
@@ -16,23 +13,6 @@ export default function SinglePizza() {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-
-                    const keys = Object.keys(data)
-                    console.log(keys);
-                    if (keys.includes('error')) {
-                        // redirect to a 404
-                        navigate('/404')
-
-                    } else {
-                        // check if there are no errors 
-                        // then set the pizza
-                        setPizza(data.data)
-
-                    }
-
-                    // otherwise 
-                    //redirect the user to a 404 page
-
                 })
                 .catch(err => {
                     console.log(err);
@@ -42,7 +22,8 @@ export default function SinglePizza() {
 
     return (
         <>
-            {
+            <h1>Pizza id: {id}</h1>
+            {/* {
                 pizza ? (
 
                     <div>
@@ -72,7 +53,7 @@ export default function SinglePizza() {
                 ) : (
                     <div>loading...</div>
                 )
-            }
+            } */}
         </>
     )
 }
