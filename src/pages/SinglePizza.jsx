@@ -4,8 +4,9 @@ import { useNavigate, useParams } from "react-router-dom"
 export default function SinglePizza() {
 
     const { id } = useParams();
-    const url = "http://127.0.0.1:3000/pizze/${id}"
+    const url = `http://127.0.0.1:3000/pizze/${id}`
     console.log(url);
+    const [pizza, setPizza] = useState(null)
 
     useEffect(
         () => {
@@ -13,6 +14,8 @@ export default function SinglePizza() {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
+                    setPizza(data.data)
+
                 })
                 .catch(err => {
                     console.log(err);
@@ -23,37 +26,30 @@ export default function SinglePizza() {
     return (
         <>
             <h1>Pizza id: {id}</h1>
-            {/* {
+
+            {/* {pizza ? (<div>I found pizza</div>) :
+                (<div>I don't found a pizza</div>)
+            } */}
+
+            {
                 pizza ? (
 
-                    <div>
-                        <Jumbotron title={pizza.name} description={pizza?.description} bgImageUrl={`http://127.0.0.1:3000/${pizza.image}`} />
 
-                        <section className="pizza_details">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col">
-                                        <div className="card border-0 rounded-4 shadow-lg">
-                                            <img className="card-img-top rounded-4" src={`http://127.0.0.1:3000/${pizza.image}`} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="col">
-                                        <h3>{pizza.name}</h3>
-                                        <div>
-                                            <p>
-                                                {pizza.description}
-                                            </p>
-                                            <div className="price">€{pizza.price}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                    <div className="col" key={pizza.id}>
+                        <div className="card-single-pizza text-center">
+                            <img className="img" src={pizza.image} alt="" />
+                            <p>
+                                {pizza.name}
+                            </p>
+                        </div>
                     </div>
+
+
+
                 ) : (
-                    <div>loading...</div>
+                    <div>I don't found a pizza</div>
                 )
-            } */}
+            }
         </>
     )
 }
