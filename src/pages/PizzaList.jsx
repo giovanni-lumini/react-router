@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function PizzaList() {
 
@@ -39,7 +40,11 @@ export default function PizzaList() {
                                     pizzeData.data.map(pizza => (
                                         <div className="col" key={pizza.id}>
                                             <div className="card text-center">
-                                                <img className="img" src={pizza.image} alt="" />
+
+                                                <Link to={`/pizza-list/${pizza.id}`}>
+                                                    <img className="img" src={pizza.image} alt="" />
+                                                </Link>
+
                                                 <p>
                                                     {pizza.name}
                                                 </p>
@@ -50,8 +55,8 @@ export default function PizzaList() {
                             }
                         </div>
                     </div>
-                </section>
-            </div>
+                </section >
+            </div >
         </>
     )
 }

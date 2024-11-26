@@ -27,25 +27,25 @@ export default function SinglePizza() {
         <>
             <h1>Pizza id: {id}</h1>
 
-            {/* {pizza ? (<div>I found pizza</div>) :
-                (<div>I don't found a pizza</div>)
-            } */}
-
             {
                 pizza ? (
-
-
                     <div className="col" key={pizza.id}>
                         <div className="card-single-pizza text-center">
+                            <link> </link>
                             <img className="img" src={pizza.image} alt="" />
                             <p>
                                 {pizza.name}
                             </p>
+
+                            <p>
+                                {pizza.price}
+                            </p>
+
+                            <p>
+                                {pizza.ingredients}
+                            </p>
                         </div>
                     </div>
-
-
-
                 ) : (
                     <div>I don't found a pizza</div>
                 )
