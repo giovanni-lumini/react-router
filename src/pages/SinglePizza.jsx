@@ -31,7 +31,6 @@ export default function SinglePizza() {
                 pizza ? (
                     <div className="col" key={pizza.id}>
                         <div className="card-single-pizza text-center">
-                            <link> </link>
                             <img className="img" src={pizza.image} alt="" />
                             <p>
                                 {pizza.name}
